@@ -14,7 +14,7 @@ startBtn.addEventListener('click', () => {
   stopBtn.disabled = false;
 
   intervalId = setInterval(() => {
-    bodyEl.style.backgroundColor = `${getRandomHexColor()}`;
+    bodyEl.style.backgroundColor = getRandomHexColor();
   }, 1000);
 });
 
