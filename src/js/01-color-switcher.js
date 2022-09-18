@@ -6,7 +6,7 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-let timerId = null;
+let intervalId = null;
 stopBtn.disabled = true;
 
 const changeBodyColor = () => {
@@ -14,13 +14,13 @@ const changeBodyColor = () => {
 };
 
 const onStartBtnClick = () => {
-  timerId = setInterval(changeBodyColor, 1000);
+  intervalId = setInterval(changeBodyColor, 1000);
   startBtn.disabled = true;
   stopBtn.disabled = false;
 };
 
 const onStopBtnClick = () => {
-  clearInterval(timerId);
+  clearInterval(intervalId);
 };
 
 startBtn.addEventListener('click', onStartBtnClick);
