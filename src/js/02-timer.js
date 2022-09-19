@@ -25,7 +25,7 @@ const options = {
 
     if (selectedDates[0].getTime() < Date.now()) {
       // или (selectedDates[0] < new Date())
-      Notiflix.Notify.warning('Please choose a date in the future');
+      Notiflix.Notify.failure('Please choose a date in the future');
     } else {
       startBtn.disabled = false;
       delta = selectedDates[0].getTime() - Date.now();
