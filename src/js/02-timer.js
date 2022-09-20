@@ -38,30 +38,30 @@ flatpickr(inputPicker, options);
 let timerId = null;
 
 const onStartBtnClick = () => {
-  //   console.log(delta);
-
   timerId = setInterval(() => {
-    const { days, hours, minutes, seconds } = convertMs(delta);
-    // console.log(days, hours, minutes, seconds);
+    const timer = convertMs(delta);
 
+    // const { days, hours, minutes, seconds } = timer;
     delta -= 1000;
-    console.log(delta);
 
     if (delta <= 0) {
       clearInterval(timerId);
     }
 
-    daysEl.textContent = addLeadingZero(days);
-    hoursEl.textContent = addLeadingZero(hours);
-    minutesEl.textContent = addLeadingZero(minutes);
-    secondsEl.textContent = addLeadingZero(seconds);
-
+    timerWithLeadingZero(timer);
     startBtn.disabled = true;
   }, 1000);
 };
 
 const addLeadingZero = value => {
   return String(value).padStart(2, 0);
+};
+
+const timerWithLeadingZero = ({ days, hours, minutes, seconds }) => {
+  daysEl.textContent = addLeadingZero(days);
+  hoursEl.textContent = addLeadingZero(hours);
+  minutesEl.textContent = addLeadingZero(minutes);
+  secondsEl.textContent = addLeadingZero(seconds);
 };
 
 function convertMs(ms) {
@@ -79,3 +79,29 @@ function convertMs(ms) {
 }
 
 startBtn.addEventListener('click', onStartBtnClick);
+
+//
+
+// const onStartBtnClick = () => {
+//   //   console.log(delta);
+
+//   timerId = setInterval(() => {
+//     const { days, hours, minutes, seconds } = convertMs(delta);
+//     console.log('destruct >>:', days, hours, minutes, seconds);
+//     console.log('delta >>:', delta);
+
+//     delta -= 1000;
+//     // console.log(delta);
+
+//     if (delta <= 0) {
+//       clearInterval(timerId);
+//     }
+
+//     daysEl.textContent = addLeadingZero(days);
+//     hoursEl.textContent = addLeadingZero(hours);
+//     minutesEl.textContent = addLeadingZero(minutes);
+//     secondsEl.textContent = addLeadingZero(seconds);
+
+//     startBtn.disabled = true;
+//   }, 1000);
+// };
