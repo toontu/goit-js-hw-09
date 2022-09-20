@@ -11,7 +11,6 @@ const secondsEl = document.querySelector('[data-seconds]');
 
 startBtn.disabled = true;
 
-// const now = Date.now();
 let delta = null;
 
 const options = {
